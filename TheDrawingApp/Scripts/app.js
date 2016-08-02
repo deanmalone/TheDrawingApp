@@ -2,8 +2,8 @@
 
     var canvas;                 // the HTML5 canvas object
     var context;                // the drawing context for the canvas
-    var canvasHeight = 600;     // fixed height
-    var canvasWidth = 800;      // fixed width
+    var canvasHeight = 572;     // fixed height
+    var canvasWidth = 980;      // fixed width
 
     var defaultfillStyle        = "solid";      // solid line style
     var defaultstrokeStyle      = "#555555";    // color of line
@@ -70,32 +70,58 @@
         $('#canvas').mouseup(function (e) {
             if (isDrawing) {
                 isDrawing = false;
-
-                // if there no points in the segment then draw a point
-                if (currentSegment.points.length === 0) {
-                    // draw a point using lineTo with offset of 1 pixel
-                    context.lineTo(currentX+1, currentY+1);
-                    context.stroke();
-                    currentSegment.points.push({ "x": currentX+1, "y": currentY+1 })
-                }
-
-                context.closePath();
-                drawingHubProxy.server.updateDrawing(currentSegment);
-                currentSegment = null;
+                onFinishSegment();
             }
         });
 
         $('#canvas').mouseleave(function (e) {
             if (isDrawing) {
                 isDrawing = false;
-                context.closePath();
-                drawingHubProxy.server.updateDrawing(currentSegment);
-                currentSegment = null;
+                onFinishSegment();
             }
         });
 
+        // Add touch events
+        $('#canvas').on("touchstart", function (e) {
+            e.preventDefault();
+
+            // touch start location
+            var touchEvent = e.originalEvent.changedTouches[0];
+            var x = touchEvent.pageX - this.offsetLeft;
+            var y = touchEvent.pageY - this.offsetTop;
+
+            //isDrawing = true;
+            context.beginPath();
+            context.moveTo(x, y);
+
+            // new segment
+            currentSegment = Segment(x, y, context.strokeStyle, context.lineWidth);
+            currentX = x;
+            currentY = y;
+        });
+
+        $('#canvas').on("touchmove", function (e) {
+            e.preventDefault();
+
+            var touchEvent = e.originalEvent.changedTouches[0];
+            var x = touchEvent.pageX - this.offsetLeft;
+            var y = touchEvent.pageY - this.offsetTop;
+
+            context.lineTo(x, y);
+            context.stroke();
+
+            // Add point to segment
+            currentSegment.points.push({ "x": x, "y": y })
+            currentX = x;
+            currentY = y;
+        });
+
+        $('#canvas').on("touchend", function (e) {
+            e.preventDefault();
+            onFinishSegment();
+        });
+
         $("#clear-button").on("click", function (e) {
-            console.log("clear-button");
             drawingHubProxy.server.clearDrawing();
         });
     };
@@ -138,12 +164,29 @@
         init();
     });
 
+    function onFinishSegment() {
+        // if a mouseup or touchend event occurs immediately after mousedown or touchstart events,
+        // i.e. without any move events, then draw a single dot.
+        if (currentSegment.points.length === 0) {
+            // draw a dot using lineTo with offset of 1 pixel
+            context.lineTo(currentX + 1, currentY + 1);
+            context.stroke();
+            currentSegment.points.push({ "x": currentX + 1, "y": currentY + 1 })
+        }
+
+        // finish segment and send to server
+        context.closePath();
+        drawingHubProxy.server.updateDrawing(currentSegment);
+        currentSegment = null;
+    }
+
     function Segment(xpos, ypos, color, size) {
         return {
-            start: { x: xpos, y: ypos},
+            start: { x: xpos, y: ypos },
             color: color,
             size: size,
             points: []
         }
     }
+
 });
