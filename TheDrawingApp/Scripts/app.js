@@ -121,6 +121,19 @@
             onFinishSegment();
         });
 
+        $("#color-select-list li").on("click", function (e) {
+            var color = e.target.attributes['data-value'].value;
+            console.log("color-selected = " + color);
+            context.strokeStyle = color;
+            $('#selected-color').css('background-color', color);
+        });
+
+        $("#size-select-list li").on("click", function (e) {
+            var size = e.target.attributes['data-value'].value;
+            console.log("size-select = " + size);
+            context.lineWidth = size;
+        });
+
         $("#clear-button").on("click", function (e) {
             drawingHubProxy.server.clearDrawing();
         });

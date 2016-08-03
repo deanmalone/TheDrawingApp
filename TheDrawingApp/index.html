@@ -15,11 +15,50 @@
             <div class="collapse navbar-collapse">
                 <p class="navbar-text">Online collaborative drawing</p>    
                 <button id="clear-button" type="button" class="btn btn-default navbar-btn">Clear</button>
+                <div class="btn-group">
+                    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+                        <span id="selected-color" style="background-color: #407f1a; width: 12px; height: 12px; display: inline-block"></span>
+                        Color
+                        <span class="caret"></span>
+                    </button>
+                    <ul id="color-select-list" class="dropdown-menu">
+                        <li><div class="dropdown-item" data-value="#000000" style="background: #000000;">&nbsp;</div></li>
+                        <li><div class="dropdown-item" data-value="#555555" style="background: #555555;">&nbsp;</div></li>
+                        <li><div class="dropdown-item" data-value="#999999" style="background: #999999;">&nbsp;</div></li>
+                        <li><div class="dropdown-item" data-value="#0a67a3" style="background: #0a67a3;">&nbsp;</div></li>
+                        <li><div class="dropdown-item" data-value="#3e97d1" style="background: #3e97d1;">&nbsp;</div></li>
+                        <li><div class="dropdown-item" data-value="#8ec9ef" style="background: #8ec9ef;">&nbsp;</div></li>
+                        <li><div class="dropdown-item" data-value="#ff0000" style="background: #ff0000;">&nbsp;</div></li>
+                        <li><div class="dropdown-item" data-value="#f56c36" style="background: #f56c36;">&nbsp;</div></li>
+                        <li><div class="dropdown-item" data-value="#f8a881" style="background: #f8a881;">&nbsp;</div></li>
+                        <li><div class="dropdown-item" data-value="#407f1a" style="background: #407f1a;">&nbsp;</div></li>
+                        <li><div class="dropdown-item" data-value="#7ed616" style="background: #7ed616;">&nbsp;</div></li>
+                        <li><div class="dropdown-item" data-value="#ddec38" style="background: #ddec38;">&nbsp;</div></li>
+                        <li><div class="dropdown-item" data-value="#a15f9d" style="background: #a15f9d;">&nbsp;</div></li>
+                        <li><div class="dropdown-item" data-value="#f580e3" style="background: #f580e3;">&nbsp;</div></li>
+                        <li><div class="dropdown-item" data-value="#ffff00" style="background: #ffff00;">&nbsp;</div></li>
+                        <li><div class="dropdown-item" data-value="#8a5025" style="background: #8a5025;">&nbsp;</div></li>
+                        <li><div class="dropdown-item" data-value="#ef934d" style="background: #ef934d;">&nbsp;</div></li>
+                        <li><div class="dropdown-item" data-value="#ffffff" style="background: #ffffff;">&nbsp;</div></li>
+                    </ul>
+                </div>
+                <div class="btn-group">
+                    <button id="size-select" class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+                        Size
+                        <span class="caret"></span>
+                    </button>
+                    <ul id="size-select-list" class="dropdown-menu">
+                        <li><div class="dropdown-item" data-value="2" style="border-top: 2px solid black;">&nbsp;</div></li>
+                        <li><div class="dropdown-item" data-value="4" style="border-top: 4px solid black;">&nbsp;</div></li>
+                        <li><div class="dropdown-item" data-value="8" style="border-top: 8px solid black;">&nbsp;</div></li>
+                        <li><div class="dropdown-item" data-value="16" style="border-top: 16px solid black;">&nbsp;</div></li> 
+                        <li><div class="dropdown-item" data-value="24" style="border-top: 24px solid black;">&nbsp;</div></li>
+                    </ul>
+                </div>
             </div>
         </div>
     </nav>
     <div id="canvasDiv"></div>
-
 
     <script src="/Scripts/jquery-1.9.1.min.js"></script>
     <script src="/Scripts/bootstrap.min.js"></script>
