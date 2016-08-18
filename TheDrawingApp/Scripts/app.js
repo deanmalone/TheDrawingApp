@@ -2,11 +2,11 @@
 
     var canvas;                 // the HTML5 canvas object
     var context;                // the drawing context for the canvas
-    var canvasHeight = 572;     // fixed height
+    var canvasHeight = 554;     // fixed height
     var canvasWidth = 980;      // fixed width
 
     var defaultfillStyle        = "solid";      // solid line style
-    var defaultstrokeStyle      = "#555555";    // color of line
+    var defaultstrokeStyle      = "#0a67a3";    // color of line
     var defaultlineWidth        = 4;            // line thickness
     var defaultlineCap          = "round";      // line cap style
 
@@ -25,7 +25,6 @@
         canvas.setAttribute("id", "canvas");
         canvas.height = canvasHeight;
         canvas.width = canvasWidth;
-        canvas.style = "border:1px solid #000000; display:block; padding-left: 0; padding-right: 0; margin-left: auto; margin-right: auto;";
 
         document.getElementById('canvasDiv').appendChild(canvas);
 
@@ -121,14 +120,14 @@
             onFinishSegment();
         });
 
-        $("#color-select-list li").on("click", function (e) {
+        $("#color-select-list div").on("click", function (e) {
             var color = e.target.attributes['data-value'].value;
             console.log("color-selected = " + color);
             context.strokeStyle = color;
             $('#selected-color').css('background-color', color);
         });
 
-        $("#size-select-list li").on("click", function (e) {
+        $("#size-select-list div").on("click", function (e) {
             var size = e.target.attributes['data-value'].value;
             console.log("size-select = " + size);
             context.lineWidth = size;

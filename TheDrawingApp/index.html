@@ -2,69 +2,57 @@
 <html>
 <head>
     <title>The Drawing App</title>
-	<meta charset="utf-8" />
-    <link rel="stylesheet" href="Content/bootstrap.css" type="text/css" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="Content/site.css" type="text/css" />
 </head>
 <body>
-    <nav class="navbar navbar-default">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#">The Drawing App</a>
-            </div>
-            <div class="collapse navbar-collapse">
-                <p class="navbar-text">Online collaborative drawing</p>    
-                <button id="clear-button" type="button" class="btn btn-default navbar-btn">Clear</button>
-                <div class="btn-group">
-                    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
-                        <span id="selected-color" style="background-color: #407f1a; width: 12px; height: 12px; display: inline-block"></span>
-                        Color
-                        <span class="caret"></span>
-                    </button>
-                    <ul id="color-select-list" class="dropdown-menu">
-                        <li><div class="dropdown-item" data-value="#000000" style="background: #000000;">&nbsp;</div></li>
-                        <li><div class="dropdown-item" data-value="#555555" style="background: #555555;">&nbsp;</div></li>
-                        <li><div class="dropdown-item" data-value="#999999" style="background: #999999;">&nbsp;</div></li>
-                        <li><div class="dropdown-item" data-value="#0a67a3" style="background: #0a67a3;">&nbsp;</div></li>
-                        <li><div class="dropdown-item" data-value="#3e97d1" style="background: #3e97d1;">&nbsp;</div></li>
-                        <li><div class="dropdown-item" data-value="#8ec9ef" style="background: #8ec9ef;">&nbsp;</div></li>
-                        <li><div class="dropdown-item" data-value="#ff0000" style="background: #ff0000;">&nbsp;</div></li>
-                        <li><div class="dropdown-item" data-value="#f56c36" style="background: #f56c36;">&nbsp;</div></li>
-                        <li><div class="dropdown-item" data-value="#f8a881" style="background: #f8a881;">&nbsp;</div></li>
-                        <li><div class="dropdown-item" data-value="#407f1a" style="background: #407f1a;">&nbsp;</div></li>
-                        <li><div class="dropdown-item" data-value="#7ed616" style="background: #7ed616;">&nbsp;</div></li>
-                        <li><div class="dropdown-item" data-value="#ddec38" style="background: #ddec38;">&nbsp;</div></li>
-                        <li><div class="dropdown-item" data-value="#a15f9d" style="background: #a15f9d;">&nbsp;</div></li>
-                        <li><div class="dropdown-item" data-value="#f580e3" style="background: #f580e3;">&nbsp;</div></li>
-                        <li><div class="dropdown-item" data-value="#ffff00" style="background: #ffff00;">&nbsp;</div></li>
-                        <li><div class="dropdown-item" data-value="#8a5025" style="background: #8a5025;">&nbsp;</div></li>
-                        <li><div class="dropdown-item" data-value="#ef934d" style="background: #ef934d;">&nbsp;</div></li>
-                        <li><div class="dropdown-item" data-value="#ffffff" style="background: #ffffff;">&nbsp;</div></li>
-                    </ul>
-                </div>
-                <div class="btn-group">
-                    <button id="size-select" class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
-                        Size
-                        <span class="caret"></span>
-                    </button>
-                    <ul id="size-select-list" class="dropdown-menu">
-                        <li><div class="dropdown-item" data-value="2" style="border-top: 2px solid black;">&nbsp;</div></li>
-                        <li><div class="dropdown-item" data-value="4" style="border-top: 4px solid black;">&nbsp;</div></li>
-                        <li><div class="dropdown-item" data-value="8" style="border-top: 8px solid black;">&nbsp;</div></li>
-                        <li><div class="dropdown-item" data-value="16" style="border-top: 16px solid black;">&nbsp;</div></li> 
-                        <li><div class="dropdown-item" data-value="24" style="border-top: 24px solid black;">&nbsp;</div></li>
-                    </ul>
-                </div>
+    <div class="header">
+        <span class="title">The Drawing App</span>     
+        <div class="dropdown">
+            <button class="btn">
+                <span id="selected-color" style="background-color: #0a67a3; width: 12px; height: 12px; display: inline-block"></span>
+                Color
+            </button>
+            <div id="color-select-list" class="dropdown-content">
+                <div data-value="#000000" style="background: #000000;"></div>
+                <div data-value="#555555" style="background: #555555;"></div>
+                <div data-value="#999999" style="background: #999999;"></div>
+                <div data-value="#0a67a3" style="background: #0a67a3;"></div>
+                <div data-value="#3e97d1" style="background: #3e97d1;"></div>
+                <div data-value="#8ec9ef" style="background: #8ec9ef;"></div>
+                <div data-value="#ff0000" style="background: #ff0000;"></div>
+                <div data-value="#f56c36" style="background: #f56c36;"></div>
+                <div data-value="#f8a881" style="background: #f8a881;"></div>
+                <div data-value="#407f1a" style="background: #407f1a;"></div>
+                <div data-value="#7ed616" style="background: #7ed616;"></div>
+                <div data-value="#ddec38" style="background: #ddec38;"></div>
+                <div data-value="#a15f9d" style="background: #a15f9d;"></div>
+                <div data-value="#f580e3" style="background: #f580e3;"></div>
+                <div data-value="#ffff00" style="background: #ffff00;"></div>
+                <div data-value="#8a5025" style="background: #8a5025;"></div>
+                <div data-value="#ef934d" style="background: #ef934d;"></div>
+                <div data-value="#ffffff" style="background: #ffffff;"></div>
             </div>
         </div>
-    </nav>
+        <div class="dropdown">
+            <button class="btn">Size</button>
+            <div id="size-select-list" class="dropdown-content">
+                <div data-value="2" style="padding:0; width:2px; height:2px; border:19px solid white; background-color:black;"></div>
+                <div data-value="4" style="padding:0; width:4px; height:4px; border:18px solid white; background-color:black;"></div>
+                <div data-value="8" style="padding:0; width:8px; height:8px; border:16px solid white; background-color:black;"></div>
+                <div data-value="16" style="padding:0; width:16px; height:16px; border:12px solid white; background-color:black;"></div>
+                <div data-value="24" style="padding:0; width:24px; height:24px; border:9px solid white; background-color:black;"></div>
+            </div>
+        </div>
+        <button id="clear-button" type="button" class="btn">Clear</button>
+        <span class="sub-title">Fun collaborative drawing</span>
+    </div>
+  
     <div id="canvasDiv"></div>
 
     <script src="/Scripts/jquery-1.9.1.min.js"></script>
-    <script src="/Scripts/bootstrap.min.js"></script>
-    <!--Reference the SignalR library. -->
     <script src="/Scripts/jquery.signalR-2.2.1.min.js"></script>
-    <!--Reference the autogenerated SignalR hub script. -->
     <script src="/signalr/hubs"></script>
     <script src="/Scripts/app.js"></script>
 </body>

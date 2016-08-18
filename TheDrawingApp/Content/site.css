@@ -1,24 +1,102 @@
-﻿body {
-    padding-top: 0px;
-    padding-bottom: 0px;
+﻿@font-face {
+    font-family: 'gooddogregular';
+    src: url('../fonts/GoodDog-webfont.eot');
+    src: url('../fonts/GoodDog-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/GoodDog-webfont.woff') format('woff'),
+         url('../fonts/GoodDog-webfont.ttf') format('truetype'),
+         url('../fonts/GoodDog-webfont.svg#gooddogregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
 }
 
-/* Set padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 2px;
-    padding-right: 2px;
+html, body {
+    height: 100%;
+    padding:0;
+    margin:0;
+    border:0;
 }
 
-/* Override the default bootstrap behavior where horizontal description lists 
-   will truncate terms that are too long to fit in the left column 
-*/
-.dl-horizontal dt {
-    white-space: normal;
+body {
+    font-family: 'gooddogregular';
+    font-size: 30px;
+    background-color: #fefbd8;
 }
 
-/* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    max-width: 200px;
+canvas {
+    display:block; 
+    padding-left: 0; 
+    padding-right: 0; 
+    margin-left: auto; 
+    margin-right: auto;
+    background-color: #f9f9f9;
+    border:1px solid #b2b2b2; 
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
+
+.header {
+    padding: 10px;
+    margin: 0 0 10px 0;
+    background-color: #618685;
+}
+
+.title {
+    font-size: 34px;
+    font-weight: bold;
+    color: #f9f9f9;
+    padding: 0 30px 0 0;
+}
+
+.sub-title {
+    font-size: 28px;
+    color: #fefbd8;
+    padding: 0 0 0 20px;
+}
+
+.btn {
+    background-color: #36486b;
+    color: #f9f9f9;
+    padding: 10px 16px 10px 16px;
+    /*font-family: 'gooddogregular';*/
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover  {
+    background-color: #4040a1;
+    color: #ffef96;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none; 
+    position: absolute;
+    background-color: #f9f9f9;
+    padding: 5px 10px 5px 10px;
+    width: 275px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.dropdown-content div {
+    padding: 10px;
+    margin: 5px;
+    text-decoration: none;
+    display: inline-block;
+    width:10px;
+    height:10px;
+    border: 1px solid black;
+}
+
+.dropdown-content div:hover {
+    background-color: #f1f1f1
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
