@@ -37,18 +37,20 @@ canvas {
     padding: 10px;
     margin: 0 0 10px 0;
     background-color: #618685;
+    background-image: linear-gradient(to bottom right, #567675, #89a9a8);
+    background-image: -webkit-linear-gradient(left top, #567675, #89a9a8);
 }
 
 .title {
     font-size: 34px;
     font-weight: bold;
-    color: #f9f9f9;
+    color: #e6b800;
     padding: 0 30px 0 0;
 }
 
 .sub-title {
     font-size: 28px;
-    color: #fefbd8;
+    color: #ffeb99; /*#fefbd8;*/
     padding: 0 0 0 20px;
 }
 
@@ -63,8 +65,8 @@ canvas {
 }
 
 .btn:hover  {
-    background-color: #4040a1;
-    color: #ffef96;
+    background-color: #4d6699;
+    color:  #e6b800;
 }
 
 .dropdown {
